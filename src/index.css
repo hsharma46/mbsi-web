@@ -1,0 +1,266 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 217 92% 31%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 193 98% 50%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 193 98% 50%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 92% 31%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 217 92% 31%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 217 92% 31%;
+    --sidebar-accent: 217 70% 40%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 217 70% 40%;
+    --sidebar-ring: 0 0% 98%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 92% 31%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 193 98% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 217 92% 31%;
+    
+    --sidebar-background: 217 70% 16%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 217 70% 16%;
+    --sidebar-accent: 217 70% 25%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 217 70% 25%;
+    --sidebar-ring: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: linear-gradient(180deg, rgba(240, 249, 255, 0.2) 0%, rgba(214, 240, 253, 0.6) 100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .cricket-card {
+    @apply rounded-lg border border-blue-200 p-4 shadow-md transition-all hover:shadow-lg bg-white/95 backdrop-blur-sm;
+  }
+  
+  .cricket-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-all;
+  }
+  
+  .cricket-badge-paid {
+    @apply bg-[#26D0CE]/20 text-[#26D0CE] hover:bg-[#26D0CE]/30 border border-[#26D0CE]/30;
+  }
+  
+  .cricket-badge-pending {
+    @apply bg-amber-100 text-amber-800 hover:bg-amber-200 border border-amber-200;
+  }
+  
+  .cricket-badge-inactive {
+    @apply bg-red-100 text-red-800 hover:bg-red-200 border border-red-200;
+  }
+  
+  /* Dashboard and Player Management Backgrounds */
+  .dashboard-background {
+    @apply min-h-screen bg-white;
+    position: relative;
+  }
+
+  .dashboard-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/lovable-uploads/8614bb7d-d79e-4cf5-9b25-fab7591bfdd7.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .card-with-glass {
+    @apply bg-white/95 backdrop-blur-sm border-0 shadow-xl hover:shadow-xl transition-all rounded-xl;
+  }
+  
+  .section-card {
+    @apply rounded-xl border-0 bg-white/95 shadow-xl p-6 backdrop-blur-sm;
+  }
+  
+  .stats-card {
+    @apply bg-white/95 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all hover:translate-y-[-2px] rounded-xl;
+  }
+  
+  .stats-card-blue {
+    @apply border-l-4 border-l-blue-500;
+  }
+  
+  .stats-card-green {
+    @apply border-l-4 border-l-green-500;
+  }
+  
+  .stats-card-red {
+    @apply border-l-4 border-l-red-500;
+  }
+  
+  .stats-card-purple {
+    @apply border-l-4 border-l-purple-500;
+  }
+  
+  .stats-card-amber {
+    @apply border-l-4 border-l-amber-500;
+  }
+
+  /* QR Code styling */
+  .qr-container {
+    @apply p-4 bg-white rounded-lg shadow-xl border border-gray-200;
+  }
+  
+  /* Payment status indicators */
+  .payment-status-indicator {
+    @apply h-2.5 rounded-full overflow-hidden;
+  }
+  
+  .payment-status-good {
+    @apply bg-[#26D0CE];
+  }
+  
+  .payment-status-warning {
+    @apply bg-amber-500;
+  }
+  
+  .payment-status-danger {
+    @apply bg-red-500;
+  }
+  
+  /* Login page specific styling */
+  .login-background {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .login-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(16, 17, 43, 0.8) 0%, rgba(26, 41, 128, 0.7) 100%);
+    z-index: 1;
+  }
+  
+  .login-card {
+    @apply bg-gradient-to-br from-[#9b87f5]/30 to-[#0FA0CE]/20 backdrop-blur-lg border border-purple-300/30 rounded-2xl shadow-xl transition-all;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .header-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  
+  /* Enhanced transaction history and member list */
+  .modern-table-wrapper {
+    @apply overflow-hidden rounded-xl shadow-xl;
+  }
+  
+  .modern-table-header {
+    @apply bg-blue-600/90 text-white font-medium px-4 py-3;
+  }
+  
+  .modern-table-row {
+    @apply bg-white hover:bg-blue-50 transition-colors border-b border-blue-100;
+  }
+  
+  .modern-table-cell {
+    @apply px-4 py-3;
+  }
+}
