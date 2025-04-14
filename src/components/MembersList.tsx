@@ -3,8 +3,7 @@ import { Member } from "@/types";
 import { formatCurrency, formatDate } from "@/data/mockData";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { QrCodeIcon, IndianRupee } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { IndianRupee } from "lucide-react";
 import { useState } from "react";
 import { QRCodeModal } from "./QRCodeModal";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -66,7 +65,6 @@ export function MembersList({ members, monthlyDueAmount, onToggleStatus }: Membe
               <TableHead className="text-blue-800">Status</TableHead>
               <TableHead className="text-blue-800">Last Payment</TableHead>
               <TableHead className="text-blue-800">Amount Due</TableHead>
-              <TableHead className="text-blue-800 text-right">QR Code</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -123,20 +121,7 @@ export function MembersList({ members, monthlyDueAmount, onToggleStatus }: Membe
                       {formatCurrency(amountDue).replace('$', '')}
                     </span>
                   </TableCell>
-                  <TableCell className="text-right">
-                    {member.status === 'active' && !member.isPaid && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleShowQR(member)}
-                        className="border-blue-200 text-blue-700 hover:bg-blue-50 shadow-sm"
-                      >
-                        <QrCodeIcon className="h-3 w-3 mr-1" />
-                        QR Code
-                      </Button>
-                    )}
-                  </TableCell>
-                </TableRow>
+                  </TableRow>
               );
             })}
           </TableBody>

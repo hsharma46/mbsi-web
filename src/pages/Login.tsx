@@ -95,9 +95,7 @@ const Login = () => {
                   className="bg-white/20 border-purple-300/30 focus:border-[#9b87f5] focus:ring-[#9b87f5]/20 text-white mt-2"
                   required
                 />
-                <p className="text-xs text-white mt-1">
-                  Try "admin" for admin access
-                </p>
+              
               </div>
               <div>
                 <Label htmlFor="password" className="text-white font-medium text-sm md:text-base">Password</Label>
@@ -109,10 +107,7 @@ const Login = () => {
                   placeholder="Enter password"
                   className="bg-white/20 border-purple-300/30 focus:border-[#9b87f5] focus:ring-[#9b87f5]/20 text-white mt-2"
                   required
-                />
-                <p className="text-xs text-white mt-1">
-                  Try "cricket123" for admin access
-                </p>
+                />               
               </div>
             </div>
             

@@ -261,16 +261,7 @@ export function Dashboard({ initialState }: DashboardProps) {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-indigo-900/80"></div>
           </div>
           
-          <div className="relative z-10 p-8 flex flex-col md:flex-row justify-between items-start md:items-center">
-            <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Cricket Team Fund Manager
-              </h1>
-              <p className="text-blue-100 max-w-lg">
-                Manage your team's finances, track payments, and keep everyone updated.
-              </p>
-            </div>
-          </div>
+    
         </div>
         
         <div className="flex flex-col space-y-4">
