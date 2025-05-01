@@ -1,20 +1,23 @@
 
-import { Dashboard } from "@/components/Dashboard";
-import { initialState } from "@/data/mockData";
-import { useAuth } from "@/context/AuthContext";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Index = () => {
-  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
 
-  // Ensure we have a user context
-  const updatedState = {
-    ...initialState,
-    currentUser: currentUser || initialState.currentUser
-  };
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    } else {
+      navigate("/login");
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
-    <div className="dashboard-background">
-      <Dashboard initialState={updatedState} />
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="animate-pulse">Redirecting...</div>
     </div>
   );
 };
